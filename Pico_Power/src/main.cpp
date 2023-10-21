@@ -4,6 +4,11 @@
 void setup() {
   // initialize the digital pin as an output.
   pinMode(LED_BUILTIN, OUTPUT);
+  
+//Debug Serial Setup , Comment in and Out as required  
+  Serial.begin(9600);
+
+
 }
 
 // the loop routine runs over and over again forever:
@@ -14,5 +19,11 @@ void loop() {
   delay(1000);               // wait for a second
 
 //float
+
+
+//test Serial Output
+Serial.println("Look at me MOM!");
+
+
 
 }
