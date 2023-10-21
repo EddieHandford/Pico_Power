@@ -12,11 +12,11 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug",
-            "executable": "c:/Users/handf/OneDrive/Documents/GitHub/Pico_Power/Pico_Power/.pio/build/pico/firmware.elf",
+            "executable": "F:/Documents/GitHub/Pico_Power/Pico_Power/.pio/build/pico/firmware.elf",
             "projectEnvName": "pico",
-            "toolchainBinDir": "C:/Users/handf/.platformio/packages/toolchain-gccarmnoneeabi/bin",
+            "toolchainBinDir": "C:/Users/tomtu/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "internalConsoleOptions": "openOnSessionStart",
-            "svdPath": "C:/Users/handf/.platformio/platforms/raspberrypi/misc/svd/rp2040.svd",
+            "svdPath": "C:/Users/tomtu/.platformio/platforms/raspberrypi/misc/svd/rp2040.svd",
             "preLaunchTask": {
                 "type": "PlatformIO",
                 "task": "Pre-Debug"
@@ -26,21 +26,21 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
-            "executable": "c:/Users/handf/OneDrive/Documents/GitHub/Pico_Power/Pico_Power/.pio/build/pico/firmware.elf",
+            "executable": "F:/Documents/GitHub/Pico_Power/Pico_Power/.pio/build/pico/firmware.elf",
             "projectEnvName": "pico",
-            "toolchainBinDir": "C:/Users/handf/.platformio/packages/toolchain-gccarmnoneeabi/bin",
+            "toolchainBinDir": "C:/Users/tomtu/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "internalConsoleOptions": "openOnSessionStart",
-            "svdPath": "C:/Users/handf/.platformio/platforms/raspberrypi/misc/svd/rp2040.svd"
+            "svdPath": "C:/Users/tomtu/.platformio/platforms/raspberrypi/misc/svd/rp2040.svd"
         },
         {
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (without uploading)",
-            "executable": "c:/Users/handf/OneDrive/Documents/GitHub/Pico_Power/Pico_Power/.pio/build/pico/firmware.elf",
+            "executable": "F:/Documents/GitHub/Pico_Power/Pico_Power/.pio/build/pico/firmware.elf",
             "projectEnvName": "pico",
-            "toolchainBinDir": "C:/Users/handf/.platformio/packages/toolchain-gccarmnoneeabi/bin",
+            "toolchainBinDir": "C:/Users/tomtu/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "internalConsoleOptions": "openOnSessionStart",
-            "svdPath": "C:/Users/handf/.platformio/platforms/raspberrypi/misc/svd/rp2040.svd",
+            "svdPath": "C:/Users/tomtu/.platformio/platforms/raspberrypi/misc/svd/rp2040.svd",
             "loadMode": "manual"
         }
     ]
