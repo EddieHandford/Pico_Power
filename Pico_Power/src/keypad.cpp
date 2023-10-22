@@ -21,4 +21,8 @@ F = 32768
 '''
 */
 
-pico_keypad.get_button_states();
+/*
+Objective: Detect when a button is pressed on the keypad, and note the time and which button to the console.
+Breakdown: Detect button pressed. Identify button. Identify time. Combine and output to consolde
+*/
+
