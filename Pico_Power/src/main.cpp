@@ -1,19 +1,26 @@
 #include "keypad.h"
+uint16_t get_button_states();
 
-// the setup routine runs once when you press reset:
-void setup() {
-  // initialize the digital pin as an output.
-  pinMode(LED_BUILTIN, OUTPUT);
-}
+int main() {
+    stdio_init_all();
+    
+    while (true) {
+        uint16_t button_states = get_button_states();
+        
+        // Iterate through all buttons in a 4x4 grid
+        for (int row = 0; row < 4; row++) {
+            for (int col = 0; col < 4; col++) {
+                int button_index = row * 4 + col;
+                
+                // Check if the button at button_index is pressed
+                if (button_states & (1 << button_index)) {
+                    std::cout << "Button at Row " << row << ", Column " << col << " is pressed\n";
+                }
+            }
+        }
+        
+        sleep_ms(100); // Poll the button states every 100 milliseconds
+    }
 
-// the loop routine runs over and over again forever:
-void loop() {
-  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);               // wait for a second
-  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);               // wait for a second
-  //detect button press
-  //doGetButtonName()
-  //doGetTime()
-  //doPrintConsole(buttonName, timePressed)
+    return 0;
 }
