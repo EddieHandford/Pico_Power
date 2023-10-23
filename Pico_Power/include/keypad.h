@@ -11,7 +11,7 @@
 #include <i2c.h>
 #include <spi.h>
 
-
+void update();
 
 
 #endif

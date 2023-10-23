@@ -31,8 +31,8 @@ enum pin {
   SDA       =  4,
   SCL       =  5,
   CS        = 17,
-  SCK       = 18,
-  MOSI      = 19
+  SCK1       = 18,
+  MOSI1      = 19
 }; // Enumerator to link up the GPIO pins to which port they are connected to.
 
 //Initialise variables for Pad size and keys
@@ -50,8 +50,8 @@ int WIDTH {4};
     gpio_set_function(pin::CS, GPIO_FUNC_SIO);
     gpio_set_dir(pin::CS, GPIO_OUT);
     gpio_put(pin::CS, 1);
-    gpio_set_function(pin::SCK, GPIO_FUNC_SPI);
-    gpio_set_function(pin::MOSI, GPIO_FUNC_SPI);
+    gpio_set_function(pin::SCK1, GPIO_FUNC_SPI);
+    gpio_set_function(pin::MOSI1, GPIO_FUNC_SPI);
 
     update();
   }

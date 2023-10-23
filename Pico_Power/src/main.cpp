@@ -2,8 +2,8 @@
 uint16_t get_button_states();
 
 int main() {
-    stdio_init_all();
-    
+    Serial.begin(9600);
+
     while (true) {
         uint16_t button_states = get_button_states();
         
@@ -14,8 +14,8 @@ int main() {
                 
                 // Check if the button at button_index is pressed
                 if (button_states & (1 << button_index)) {
-                    std::cout << "Button at Row " << row << ", Column " << col << " is pressed\n";
-                }
+                    Serial.println("Button Pressed \n" + row + col);
+                } 
             }
         }
         
