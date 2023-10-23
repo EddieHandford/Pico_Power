@@ -3,6 +3,7 @@ uint16_t get_button_states();
 
 int main() {
     Serial.begin(9600);
+    stdio_init_all(); //Not sure if this is needed?
 
     while (true) {
         uint16_t button_states = get_button_states();
