@@ -184,12 +184,4 @@ class PicoRGBKeypad {
       illuminate(i, 0, 0, 0);
   }
 
-  uint16_t get_button_states() {
-    uint8_t i2c_read_buffer[2];
-    uint8_t reg = 0;
-    i2c_write_blocking(i2c0, KEYPAD_ADDRESS, &reg, 1, true);
-    i2c_read_blocking(i2c0, KEYPAD_ADDRESS, i2c_read_buffer, 2, false);
-    return ~((i2c_read_buffer[0]) | (i2c_read_buffer[1] << 8));
-  }
-
 }*/
