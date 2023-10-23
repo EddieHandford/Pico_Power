@@ -4,19 +4,13 @@
 
 //Includes
 #include <Arduino.h>
-#include <pico.h>
 #include <stdlib.h>
-//#include <stdio.h>
 #include <string.h>
 #include <math.h>
 #include <iostream>
 #include <i2c.h>
 #include <spi.h>
-//#include <i2c.h>
-//
 
-
-//Include function declarations
 
 
 

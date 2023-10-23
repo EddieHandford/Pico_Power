@@ -1,5 +1,5 @@
 #include "keypad.h"
-
+#include <Arduino.h>
 
 /*
 Key Code Table - Button number on left - Code on right
@@ -44,9 +44,9 @@ int WIDTH {4};
   {
     gpio_set_function(pin::SDA, GPIO_FUNC_I2C); gpio_pull_up(pin::SDA);
     gpio_set_function(pin::SCL, GPIO_FUNC_I2C); gpio_pull_up(pin::SCL);
-    i2c_init(i2c0, 400000);
+    _i2c_init(i2c0, 400000);
 
-    spi_init(spi0, 4 * 1024 * 1024);
+    _spi_init(spi0, 4 * 1024 * 1024);
     gpio_set_function(pin::CS, GPIO_FUNC_SIO);
     gpio_set_dir(pin::CS, GPIO_OUT);
     gpio_put(pin::CS, 1);
@@ -58,6 +58,7 @@ int WIDTH {4};
 
   void update() 
   {
+    uint8_t buffer[(16 * 4) + 8];
     gpio_put(pin::CS, 0);
     spi_write_blocking(spi0, buffer, sizeof(buffer));
     gpio_put(pin::CS, 1);
