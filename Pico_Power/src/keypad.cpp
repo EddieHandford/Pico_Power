@@ -44,7 +44,7 @@ int WIDTH {4};
   {
     gpio_set_function(pin::SDA, GPIO_FUNC_I2C); gpio_pull_up(pin::SDA);
     gpio_set_function(pin::SCL, GPIO_FUNC_I2C); gpio_pull_up(pin::SCL);
-    _i2c_init(i2c0, 400000);
+    _i2c_init(i2c0, 600000);
 
     _spi_init(spi0, 4 * 1024 * 1024);
     gpio_set_function(pin::CS, GPIO_FUNC_SIO);
@@ -61,7 +61,7 @@ int WIDTH {4};
     uint8_t buffer[(16 * 4) + 8];
     gpio_put(pin::CS, 0);
     spi_write_blocking(spi0, buffer, sizeof(buffer));
-    gpio_put(pin::CS, 1);
+    gpio_put(pin::CS, 1);         
   }
 
 
@@ -72,6 +72,8 @@ uint16_t get_button_states() //returns a 16-bit unsigned integer which is used t
     uint8_t KEYPAD_ADDRESS = 0x20; //An 8-bit unsigned integer used to specift the i2c device address
     i2c_write_blocking(i2c0, KEYPAD_ADDRESS, &reg, 1, true); //Sends a I2C write command to the device. (i2c Bus to use, I2C address of the device being written to, the register to read from, number of bytes to write, whether to send a stop condition after sending)
     i2c_read_blocking(i2c0, KEYPAD_ADDRESS, i2c_read_buffer, 2, false); //Sends an I2C read command. (i2c bus to use, I2C address of the device being read from, The buffer the data read from the device will be stored in, number of bytes to read (2 representing the ON/OFF nature of the buttons), whether to send a stop condition after reading)
+    Serial.println(i2c_read_buffer[0]);
+    Serial.println(i2c_read_buffer[1]);
     return ~((i2c_read_buffer[0]) | (i2c_read_buffer[1] << 8)); //This line combines the two bytes read from the i2c device into a single 16 bit value. The first byte is used as the lower 8 bits and the second is shifter left by 8 to make the upper 8 bits. Then the ~ inverts all the bits to show the ON/OFF of the buttons. 
   } //The result of this is a 16 bit value where each bit corresponds to the state of a particular button.
 
