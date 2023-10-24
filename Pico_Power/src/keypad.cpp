@@ -27,24 +27,25 @@ Objective: Detect when a button is pressed on the keypad, and note the time and 
 Breakdown: Detect button pressed. Identify button. Identify time. Combine and output to consolde
 */
 
+
+// Enumerator to link up the GPIO pins to which port they are connected to.
 enum pin {
   SDA       =  4,
   SCL       =  5,
   CS        = 17,
   SCK1       = 18,
   MOSI1      = 19
-}; // Enumerator to link up the GPIO pins to which port they are connected to.
+}; 
 
-//Initialise variables for Pad size and keys
-int WIDTH {4};
 
 
 //Initialise the I2C interface and keypad
   void initKeypad()
   {
+    _i2c_init(i2c0, 400000);
     gpio_set_function(pin::SDA, GPIO_FUNC_I2C); gpio_pull_up(pin::SDA);
     gpio_set_function(pin::SCL, GPIO_FUNC_I2C); gpio_pull_up(pin::SCL);
-    _i2c_init(i2c0, 600000);
+    
 
     _spi_init(spi0, 4 * 1024 * 1024);
     gpio_set_function(pin::CS, GPIO_FUNC_SIO);

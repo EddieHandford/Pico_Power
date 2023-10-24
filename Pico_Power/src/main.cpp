@@ -16,13 +16,11 @@ void loop()
 {
  
   uint16_t button_states = get_button_states();
-  Serial.println(button_states);
-  Serial.println(get_button_states());
-  Serial.println(get_button_states()); // So this is currently outputting 65535 which is the highest number. Caused by it flipping the 2 zeros it gets from the previous function.
+  Serial.println(button_states); // So this is currently outputting 65535 which is the highest number. Caused by it flipping the 2 zeros it gets from the previous function.
   //Serial.println(get_button_states());
   
-        
-  sleep_ms(1000); // Poll the button states every 100 milliseconds
+  update();     
+  sleep_ms(100); // Poll the button states every 100 milliseconds
 } 
 
 /*
