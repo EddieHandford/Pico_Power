@@ -10,6 +10,7 @@
             "includePath": [
                 "c:/Users/handf/OneDrive/Documents/GitHub/Pico_Power/Pico_Power/include",
                 "c:/Users/handf/OneDrive/Documents/GitHub/Pico_Power/Pico_Power/src",
+                "C:/Users/handf/.platformio/packages/framework-arduino-mbed/libraries/Wire",
                 "C:/Users/handf/.platformio/packages/framework-arduino-mbed/cores/arduino",
                 "C:/Users/handf/.platformio/packages/framework-arduino-mbed/cores/arduino/api/deprecated",
                 "C:/Users/handf/.platformio/packages/framework-arduino-mbed/cores/arduino/api/deprecated-avr-comp",
@@ -49,7 +50,6 @@
                 "C:/Users/handf/.platformio/packages/framework-arduino-mbed/libraries/USBMIDI",
                 "C:/Users/handf/.platformio/packages/framework-arduino-mbed/libraries/USBMSD/src",
                 "C:/Users/handf/.platformio/packages/framework-arduino-mbed/libraries/WiFi/src",
-                "C:/Users/handf/.platformio/packages/framework-arduino-mbed/libraries/Wire",
                 "C:/Users/handf/.platformio/packages/framework-arduino-mbed/libraries/doom/src",
                 "C:/Users/handf/.platformio/packages/framework-arduino-mbed/libraries/ea_malloc",
                 "C:/Users/handf/.platformio/packages/framework-arduino-mbed/libraries/mbed-memory-status",
@@ -63,6 +63,7 @@
                 "path": [
                     "c:/Users/handf/OneDrive/Documents/GitHub/Pico_Power/Pico_Power/include",
                     "c:/Users/handf/OneDrive/Documents/GitHub/Pico_Power/Pico_Power/src",
+                    "C:/Users/handf/.platformio/packages/framework-arduino-mbed/libraries/Wire",
                     "C:/Users/handf/.platformio/packages/framework-arduino-mbed/cores/arduino",
                     "C:/Users/handf/.platformio/packages/framework-arduino-mbed/cores/arduino/api/deprecated",
                     "C:/Users/handf/.platformio/packages/framework-arduino-mbed/cores/arduino/api/deprecated-avr-comp",
@@ -102,7 +103,6 @@
                     "C:/Users/handf/.platformio/packages/framework-arduino-mbed/libraries/USBMIDI",
                     "C:/Users/handf/.platformio/packages/framework-arduino-mbed/libraries/USBMSD/src",
                     "C:/Users/handf/.platformio/packages/framework-arduino-mbed/libraries/WiFi/src",
-                    "C:/Users/handf/.platformio/packages/framework-arduino-mbed/libraries/Wire",
                     "C:/Users/handf/.platformio/packages/framework-arduino-mbed/libraries/doom/src",
                     "C:/Users/handf/.platformio/packages/framework-arduino-mbed/libraries/ea_malloc",
                     "C:/Users/handf/.platformio/packages/framework-arduino-mbed/libraries/mbed-memory-status",
