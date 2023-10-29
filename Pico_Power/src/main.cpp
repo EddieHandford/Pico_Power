@@ -1,3 +1,44 @@
+#include <Arduino.h>
+#include <Wire.h>
+
+
+enum pin {
+  SDA       =  4,
+  SCL       =  5,
+  CS        = 17,
+  SCK1       = 18,
+  MOSI1      = 19
+}; 
+
+void setup()
+{
+  Serial.begin(9600); //Begin serial output at 9.6k for debug readout
+  pinMode(LED_BUILTIN, OUTPUT); //Set up LED
+  digitalWrite(LED_BUILTIN, HIGH); //Turn on LED (Highlights its out of boot mode)
+  Wire.setClock(100000); //Set clockspeed for the peripheral
+  Wire.begin(); //Join i2c bus. This is the master so no address needed I believe?
+}
+
+
+void loop()
+{
+  
+Wire.beginTransmission(0x20); //Begin transmission to the specified address (Keypad is meant to be located here)
+//Wire.write(1); //
+Wire.endTransmission();
+int x = Wire.endTransmission();
+Serial.println(x, DEC);
+Serial.println(0x20);
+
+delay(100);
+
+
+}
+
+
+
+
+/*
 #include "keypad.h"
 uint16_t get_button_states();
 void initKeypad();
@@ -24,6 +65,8 @@ void loop()
 } 
 
 /*
+
+
 int main() {
     Serial.begin(9600);
     pinMode(LED_BUILTIN, OUTPUT);

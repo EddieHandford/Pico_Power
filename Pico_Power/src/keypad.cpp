@@ -1,6 +1,9 @@
 #include "keypad.h"
 #include <Arduino.h>
-
+    
+    uint8_t i2c_read_buffer[2]; //An array of 2 8 bit unsigned integer that makes up the i2c_read_buffer variable. Stores the data read from the i2c device
+    uint8_t reg = 0; //An 8-bit unsigned integer used to specify which register or memory location on the I2C to read from. Its set to 0 which should be the starting register for reading button states
+    uint8_t KEYPAD_ADDRESS = 0x20; //An 8-bit unsigned integer used to specift the i2c device address
 /*
 Key Code Table - Button number on left - Code on right
 0 = 1
@@ -42,12 +45,12 @@ enum pin {
 //Initialise the I2C interface and keypad
   void initKeypad()
   {
-    _i2c_init(i2c0, 400000);
+    _i2c_init(i2c1, 100000);
     gpio_set_function(pin::SDA, GPIO_FUNC_I2C); gpio_pull_up(pin::SDA);
     gpio_set_function(pin::SCL, GPIO_FUNC_I2C); gpio_pull_up(pin::SCL);
     
 
-    _spi_init(spi0, 4 * 1024 * 1024);
+    _spi_init(spi1, 4 * 1024 * 1024);
     gpio_set_function(pin::CS, GPIO_FUNC_SIO);
     gpio_set_dir(pin::CS, GPIO_OUT);
     gpio_put(pin::CS, 1);
@@ -68,9 +71,7 @@ enum pin {
 
 uint16_t get_button_states() //returns a 16-bit unsigned integer which is used to store the state of the buttons
 { 
-    uint8_t i2c_read_buffer[2]; //An array of 2 8 bit unsigned integer that makes up the i2c_read_buffer variable. Stores the data read from the i2c device
-    uint8_t reg = 0; //An 8-bit unsigned integer used to specify which register or memory location on the I2C to read from. Its set to 0 which should be the starting register for reading button states
-    uint8_t KEYPAD_ADDRESS = 0x20; //An 8-bit unsigned integer used to specift the i2c device address
+
     i2c_write_blocking(i2c0, KEYPAD_ADDRESS, &reg, 1, true); //Sends a I2C write command to the device. (i2c Bus to use, I2C address of the device being written to, the register to read from, number of bytes to write, whether to send a stop condition after sending)
     i2c_read_blocking(i2c0, KEYPAD_ADDRESS, i2c_read_buffer, 2, false); //Sends an I2C read command. (i2c bus to use, I2C address of the device being read from, The buffer the data read from the device will be stored in, number of bytes to read (2 representing the ON/OFF nature of the buttons), whether to send a stop condition after reading)
     Serial.println(i2c_read_buffer[0]);
